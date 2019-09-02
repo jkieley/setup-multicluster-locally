@@ -1,0 +1,324 @@
+------------ resource: federatedconfigmaps ------------
+
+apiVersion: v1
+items:
+  - apiVersion: types.kubefed.io/v1beta1
+    kind: FederatedConfigMap
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"types.kubefed.io/v1beta1","kind":"FederatedConfigMap","metadata":{"annotations":{},"name":"test-configmap","namespace":"test-namespace"},"spec":{"overrides":[{"clusterName":"cluster2","clusterOverrides":[{"path":"/data","value":{"foo":"bar"}}]}],"placement":{"clusters":[{"name":"cluster2"},{"name":"cluster1"}]},"template":{"data":{"A":"ala ma kota"}}}}
+      creationTimestamp: "2019-09-02T05:25:24Z"
+      finalizers:
+        - kubefed.io/sync-controller
+      generation: 1
+      name: test-configmap
+      namespace: test-namespace
+      resourceVersion: "40270"
+      selfLink: /apis/types.kubefed.io/v1beta1/namespaces/test-namespace/federatedconfigmaps/test-configmap
+      uid: 74ab77de-ef35-4693-867b-501f270a7245
+    spec:
+      overrides:
+        - clusterName: cluster2
+          clusterOverrides:
+            - path: /data
+              value:
+                foo: bar
+      placement:
+        clusters:
+          - name: cluster2
+          - name: cluster1
+      template:
+        data:
+          A: ala ma kota
+    status:
+      clusters:
+        - name: cluster2
+        - name: cluster1
+      conditions:
+        - lastTransitionTime: "2019-09-02T05:25:29Z"
+          lastUpdateTime: "2019-09-02T05:25:29Z"
+          status: "True"
+          type: Propagation
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+
+
+
+------------ resource: federatedsecrets ------------
+
+apiVersion: v1
+items:
+  - apiVersion: types.kubefed.io/v1beta1
+    kind: FederatedSecret
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"types.kubefed.io/v1beta1","kind":"FederatedSecret","metadata":{"annotations":{},"name":"test-secret","namespace":"test-namespace"},"spec":{"overrides":[{"clusterName":"cluster2","clusterOverrides":[{"path":"/data","value":{"A":null}}]}],"placement":{"clusters":[{"name":"cluster2"},{"name":"cluster1"}]},"template":{"data":{"A":"YWxhIG1hIGtvdGE="},"type":"Opaque"}}}
+      creationTimestamp: "2019-09-02T05:25:25Z"
+      finalizers:
+        - kubefed.io/sync-controller
+      generation: 1
+      name: test-secret
+      namespace: test-namespace
+      resourceVersion: "40341"
+      selfLink: /apis/types.kubefed.io/v1beta1/namespaces/test-namespace/federatedsecrets/test-secret
+      uid: 81e57c6c-26ee-419d-acfa-88e01ac2b68b
+    spec:
+      overrides:
+        - clusterName: cluster2
+          clusterOverrides:
+            - path: /data
+              value:
+                A: null
+      placement:
+        clusters:
+          - name: cluster2
+          - name: cluster1
+      template:
+        data:
+          A: YWxhIG1hIGtvdGE=
+        type: Opaque
+    status:
+      clusters:
+        - name: cluster1
+        - name: cluster2
+      conditions:
+        - lastTransitionTime: "2019-09-02T05:25:30Z"
+          lastUpdateTime: "2019-09-02T05:25:30Z"
+          status: "True"
+          type: Propagation
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+
+
+
+------------ resource: federatedservice ------------
+
+apiVersion: v1
+items:
+  - apiVersion: types.kubefed.io/v1beta1
+    kind: FederatedService
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"types.kubefed.io/v1beta1","kind":"FederatedService","metadata":{"annotations":{},"name":"test-service","namespace":"test-namespace"},"spec":{"placement":{"clusters":[{"name":"cluster2"},{"name":"cluster1"}]},"template":{"spec":{"ports":[{"name":"http","port":80}],"selector":{"app":"nginx"},"type":"NodePort"}}}}
+      creationTimestamp: "2019-09-02T05:25:25Z"
+      finalizers:
+        - kubefed.io/sync-controller
+      generation: 1
+      name: test-service
+      namespace: test-namespace
+      resourceVersion: "40340"
+      selfLink: /apis/types.kubefed.io/v1beta1/namespaces/test-namespace/federatedservices/test-service
+      uid: 135ff485-2808-4b53-8b54-2bd067bca358
+    spec:
+      placement:
+        clusters:
+          - name: cluster2
+          - name: cluster1
+      template:
+        spec:
+          ports:
+            - name: http
+              port: 80
+          selector:
+            app: nginx
+          type: NodePort
+    status:
+      clusters:
+        - name: cluster1
+        - name: cluster2
+      conditions:
+        - lastTransitionTime: "2019-09-02T05:25:30Z"
+          lastUpdateTime: "2019-09-02T05:25:30Z"
+          status: "True"
+          type: Propagation
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+
+
+
+------------ resource: federateddeployment ------------
+
+apiVersion: v1
+items:
+  - apiVersion: types.kubefed.io/v1beta1
+    kind: FederatedDeployment
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"types.kubefed.io/v1beta1","kind":"FederatedDeployment","metadata":{"annotations":{},"name":"test-deployment","namespace":"test-namespace"},"spec":{"overrides":[{"clusterName":"cluster2","clusterOverrides":[{"path":"/spec/replicas","value":5},{"path":"/spec/template/spec/containers/0/image","value":"nginx:1.17.0-alpine"},{"op":"add","path":"/metadata/annotations","value":{"foo":"bar"}},{"op":"remove","path":"/metadata/annotations/foo"}]}],"placement":{"clusters":[{"name":"cluster2"},{"name":"cluster1"}]},"template":{"metadata":{"labels":{"app":"nginx"}},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"nginx"}},"template":{"metadata":{"labels":{"app":"nginx"}},"spec":{"containers":[{"image":"nginx","name":"nginx"}]}}}}}}
+      creationTimestamp: "2019-09-02T05:25:24Z"
+      finalizers:
+        - kubefed.io/sync-controller
+      generation: 1
+      name: test-deployment
+      namespace: test-namespace
+      resourceVersion: "42426"
+      selfLink: /apis/types.kubefed.io/v1beta1/namespaces/test-namespace/federateddeployments/test-deployment
+      uid: a6181bc3-38c4-4055-ad37-d83d898df332
+    spec:
+      overrides:
+        - clusterName: cluster2
+          clusterOverrides:
+            - path: /spec/replicas
+              value: 5
+            - path: /spec/template/spec/containers/0/image
+              value: nginx:1.17.0-alpine
+            - op: add
+              path: /metadata/annotations
+              value:
+                foo: bar
+            - op: remove
+              path: /metadata/annotations/foo
+      placement:
+        clusters:
+          - name: cluster2
+          - name: cluster1
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          replicas: 3
+          selector:
+            matchLabels:
+              app: nginx
+          template:
+            metadata:
+              labels:
+                app: nginx
+            spec:
+              containers:
+                - image: nginx
+                  name: nginx
+    status:
+      clusters:
+        - name: cluster2
+          status: UpdateFailed
+        - name: cluster1
+      conditions:
+        - lastTransitionTime: "2019-09-02T05:32:57Z"
+          lastUpdateTime: "2019-09-02T05:32:57Z"
+          reason: CheckClusters
+          status: "False"
+          type: Propagation
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+
+
+
+------------ resource: federatedserviceaccount ------------
+
+apiVersion: v1
+items:
+  - apiVersion: types.kubefed.io/v1beta1
+    kind: FederatedServiceAccount
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"types.kubefed.io/v1beta1","kind":"FederatedServiceAccount","metadata":{"annotations":{},"name":"test-serviceaccount","namespace":"test-namespace"},"spec":{"placement":{"clusters":[{"name":"cluster2"},{"name":"cluster1"}]},"template":{"automountServiceAccountToken":true}}}
+      creationTimestamp: "2019-09-02T05:25:25Z"
+      finalizers:
+        - kubefed.io/sync-controller
+      generation: 1
+      name: test-serviceaccount
+      namespace: test-namespace
+      resourceVersion: "40377"
+      selfLink: /apis/types.kubefed.io/v1beta1/namespaces/test-namespace/federatedserviceaccounts/test-serviceaccount
+      uid: 16dfd2cb-afb0-47fd-ab27-e9f706ea1d56
+    spec:
+      placement:
+        clusters:
+          - name: cluster2
+          - name: cluster1
+      template:
+        automountServiceAccountToken: true
+    status:
+      clusters:
+        - name: cluster1
+        - name: cluster2
+      conditions:
+        - lastTransitionTime: "2019-09-02T05:25:30Z"
+          lastUpdateTime: "2019-09-02T05:25:34Z"
+          status: "True"
+          type: Propagation
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+
+
+
+------------ resource: federatedjob ------------
+
+apiVersion: v1
+items:
+  - apiVersion: types.kubefed.io/v1beta1
+    kind: FederatedJob
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"types.kubefed.io/v1beta1","kind":"FederatedJob","metadata":{"annotations":{},"name":"test-job","namespace":"test-namespace"},"spec":{"overrides":[{"clusterName":"cluster2","clusterOverrides":[{"path":"/spec/parallelism","value":2}]}],"placement":{"clusters":[{"name":"cluster2"},{"name":"cluster1"}]},"template":{"spec":{"manualSelector":true,"parallelism":1,"selector":{"matchLabels":{"app":"busybox"}},"template":{"metadata":{"labels":{"app":"busybox"}},"spec":{"containers":[{"command":["/bin/sh","-c","trap : TERM INT; (while true; do sleep 1000; done) \u0026 wait"],"image":"busybox","name":"busybox"}],"restartPolicy":"Never","terminationGracePeriodSeconds":0}}}}}}
+      creationTimestamp: "2019-09-02T05:25:24Z"
+      finalizers:
+        - kubefed.io/sync-controller
+      generation: 1
+      name: test-job
+      namespace: test-namespace
+      resourceVersion: "40372"
+      selfLink: /apis/types.kubefed.io/v1beta1/namespaces/test-namespace/federatedjobs/test-job
+      uid: 06fd45a9-89c7-4ab5-b278-c9103ad9a7fe
+    spec:
+      overrides:
+        - clusterName: cluster2
+          clusterOverrides:
+            - path: /spec/parallelism
+              value: 2
+      placement:
+        clusters:
+          - name: cluster2
+          - name: cluster1
+      template:
+        spec:
+          manualSelector: true
+          parallelism: 1
+          selector:
+            matchLabels:
+              app: busybox
+          template:
+            metadata:
+              labels:
+                app: busybox
+            spec:
+              containers:
+                - command:
+                    - /bin/sh
+                    - -c
+                    - 'trap : TERM INT; (while true; do sleep 1000; done) & wait'
+                  image: busybox
+                  name: busybox
+              restartPolicy: Never
+              terminationGracePeriodSeconds: 0
+    status:
+      clusters:
+        - name: cluster2
+        - name: cluster1
+      conditions:
+        - lastTransitionTime: "2019-09-02T05:25:30Z"
+          lastUpdateTime: "2019-09-02T05:25:32Z"
+          status: "True"
+          type: Propagation
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

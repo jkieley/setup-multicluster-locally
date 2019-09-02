@@ -1,0 +1,88 @@
+
+ ------------ cluster1 resource: configmaps ------------
+
+NAME             DATA   AGE
+test-configmap   1      3m31s
+
+
+
+------------ cluster2 resource: configmaps ------------
+
+NAME             DATA   AGE
+test-configmap   1      3m29s
+
+
+
+------------ cluster1 resource: secrets ------------
+
+NAME                              TYPE                                  DATA   AGE
+default-token-fpcxd               kubernetes.io/service-account-token   3      7m25s
+test-secret                       Opaque                                1      3m31s
+test-serviceaccount-token-s757z   kubernetes.io/service-account-token   3      3m30s
+
+
+
+------------ cluster2 resource: secrets ------------
+
+NAME                              TYPE                                  DATA   AGE
+default-token-62pjd               kubernetes.io/service-account-token   3      7m25s
+test-secret                       Opaque                                1      3m28s
+test-serviceaccount-token-r7xb4   kubernetes.io/service-account-token   3      3m28s
+
+
+
+------------ cluster1 resource: service ------------
+
+NAME           TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+test-service   NodePort   10.103.227.180   <none>        80:32188/TCP   3m30s
+
+
+
+------------ cluster2 resource: service ------------
+
+NAME           TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+test-service   NodePort   10.107.245.153   <none>        80:30330/TCP   3m28s
+
+
+
+------------ cluster1 resource: deployment ------------
+
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+test-deployment   3/3     3            3           3m30s
+
+
+
+------------ cluster2 resource: deployment ------------
+
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+test-deployment   5/5     5            5           3m28s
+
+
+
+------------ cluster1 resource: serviceaccount ------------
+
+NAME                  SECRETS   AGE
+default               1         7m25s
+test-serviceaccount   1         3m30s
+
+
+
+------------ cluster2 resource: serviceaccount ------------
+
+NAME                  SECRETS   AGE
+default               1         7m26s
+test-serviceaccount   1         3m28s
+
+
+
+------------ cluster1 resource: job ------------
+
+NAME       COMPLETIONS   DURATION   AGE
+test-job   0/1           3m31s      3m31s
+
+
+
+------------ cluster2 resource: job ------------
+
+NAME       COMPLETIONS   DURATION   AGE
+test-job   0/1 of 2      3m28s      3m28s
