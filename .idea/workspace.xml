@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e762216b-a85c-4a74-a397-caea44fd12c8" name="Default Changelist" comment="" />
+    <list default="true" id="e762216b-a85c-4a74-a397-caea44fd12c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/staticweb/create_cluster.sh" beforeDir="false" afterPath="$PROJECT_DIR$/staticweb/create_cluster.sh" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/staticweb/install_kubefed.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -190,12 +192,12 @@
       <workItem from="1566355964488" duration="1934000" />
       <workItem from="1566520298189" duration="1199000" />
       <workItem from="1566960989645" duration="1723000" />
-      <workItem from="1567389974503" duration="1507000" />
+      <workItem from="1567389974503" duration="3898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7597000" />
+    <option name="totallyTimeSpent" value="9988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -267,7 +269,7 @@
     <entry file="file://$PROJECT_DIR$/staticweb/install_kubefed.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
