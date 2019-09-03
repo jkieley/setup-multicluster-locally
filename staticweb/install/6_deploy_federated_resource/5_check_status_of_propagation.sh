@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# ensure this is run to the cluster with kubefed (cluster2)
 # status of propagation
 for r in federatedconfigmaps federatedsecrets federatedservice federateddeployment federatedserviceaccount federatedjob; do
     echo; echo ------------ resource: ${r} ------------; echo
